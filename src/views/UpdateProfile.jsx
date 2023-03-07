@@ -21,12 +21,17 @@ const UpdateProfile = ({ fullname, username }) => {
           </View>
         </View>
       </View>
-      <TextInput placeholder="What's your first name" style={tw`h-15 border-b`} />
+      <TextInput
+        placeholder="What's your first name"
+        style={tw`h-15 border-b`}
+      />
       <TextInput placeholder="And your last name" style={tw`h-15 border-b`} />
       <TextInput placeholder="Phone number" style={tw`h-15 border-b`} />
       <TextInput placeholder="Select your gender" style={tw`h-15 border-b`} />
       <TextInput placeholder="Select your location" style={tw`h-15 border-b`} />
-      <Button style={tw`p-2 bg-blue-700`}>Update Profile</Button>
+      <View style={tw`p-2 bg-blue-700 p-4 rounded-md mt-6`}>
+        <Text style={tw`text-center text-2xl text-white`}>Update Profile</Text>
+      </View>
     </View>
   );
 };
