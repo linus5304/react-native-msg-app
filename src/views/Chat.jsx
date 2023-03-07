@@ -7,14 +7,14 @@ import { Entypo } from "@expo/vector-icons";
 import Message from "../components/Message";
 import { FontAwesome } from "@expo/vector-icons";
 
-function Chat({ name }) {
+function Chat({ name, navigation }) {
   const [text, onChangeText] = React.useState("");
   return (
     <>
       <View style={tw`flex-1`}>
-        <View style={tw`flex-1 bg-violet-700 h-30 rounded-b-[8]`}>
+        <View style={tw`flex-1 bg-violet-700 h-20 rounded-b-[8]`}>
           <View
-            style={tw`flex-row flex-1 p-4 justify-center items-center mt-10 `}
+            style={tw`flex-row items-center justify-center flex-1 p-4 `}
           >
             <View style={tw`flex-row flex-1`}>
               <AntDesign
@@ -22,11 +22,12 @@ function Chat({ name }) {
                 size={24}
                 color="white"
                 style={tw`mr-2`}
+                onPress={() => navigation.goBack()}
               />
               <Ionicons name="person-circle-outline" size={30} color="white" />
               <Text>{name}</Text>
             </View>
-            <Entypo name="phone" size={24} color="white" />
+            <Entypo name="phone" size={24} color="white" onPress={() => navigation.navigate("Call")}/>
           </View>
         </View>
         <ScrollView style={tw`flex-5`}>
@@ -48,14 +49,14 @@ function Chat({ name }) {
         <View
           style={tw`flex flex-row h-15 bg-gray-100 shadow-2xl  rounded-t-[8] items-center py-2 px-4`}
         >
-          <FontAwesome name="plus" size={24} style={tw`text-gray-300 mr-1`} />
+          <FontAwesome name="plus" size={24} style={tw`mr-1 text-gray-300`} />
           <TextInput
-            style={tw`bg-white h-10 text-lg p-2 w-80 mr-2`}
+            style={tw`h-10 p-2 mr-2 text-lg bg-white w-80`}
             onChangeText={onChangeText}
             value={text}
             placeholder="Type a message"
           />
-          <View style={tw`bg-violet-700 rounded-full p-2 `}>
+          <View style={tw`p-2 rounded-full bg-violet-700 `}>
             <FontAwesome name="send" size={24} color="white" />
           </View>
         </View>

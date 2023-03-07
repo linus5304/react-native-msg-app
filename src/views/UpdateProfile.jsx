@@ -4,12 +4,12 @@ import tw from "twrnc";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-const UpdateProfile = ({ fullname, username }) => {
+const UpdateProfile = ({ fullname, username, navigation }) => {
   return (
-    <View style={tw`flex-1 justify-start p-4 shadow-lg`}>
+    <View style={tw`justify-start flex-1 p-4 shadow-lg`}>
       <View style={tw`flex flex-row items-center justify-between mb-4`}>
-        <AntDesign name="arrowleft" size={24} color="black" style={tw`mr-2`} />
-        <Text style={tw`font-bold text-2xl`}>Bio-data</Text>
+        <AntDesign name="arrowleft" size={24} color="black" style={tw`mr-2`} onPress={() => navigation.goBack()}/>
+        <Text style={tw`text-2xl font-bold`}>Bio-data</Text>
         <View style={tw`w-10`}></View>
       </View>
       <View style={tw`flex items-center`}>
@@ -23,14 +23,14 @@ const UpdateProfile = ({ fullname, username }) => {
       </View>
       <TextInput
         placeholder="What's your first name"
-        style={tw`h-15 border-b`}
+        style={tw`border-b h-15`}
       />
-      <TextInput placeholder="And your last name" style={tw`h-15 border-b`} />
-      <TextInput placeholder="Phone number" style={tw`h-15 border-b`} />
-      <TextInput placeholder="Select your gender" style={tw`h-15 border-b`} />
-      <TextInput placeholder="Select your location" style={tw`h-15 border-b`} />
-      <View style={tw`p-2 bg-blue-700 p-4 rounded-md mt-6`}>
-        <Text style={tw`text-center text-2xl text-white`}>Update Profile</Text>
+      <TextInput placeholder="And your last name" style={tw`border-b h-15`} />
+      <TextInput placeholder="Phone number" style={tw`border-b h-15`} />
+      <TextInput placeholder="Select your gender" style={tw`border-b h-15`} />
+      <TextInput placeholder="Select your location" style={tw`border-b h-15`} />
+      <View style={tw`p-2 p-4 mt-6 bg-blue-700 rounded-md`}>
+        <Text style={tw`text-2xl text-center text-white`}>Update Profile</Text>
       </View>
     </View>
   );

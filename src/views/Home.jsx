@@ -6,7 +6,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View
       style={tw`items-center flex-1 h-full pt-4 justify-evenly bg-violet-600`}
@@ -51,12 +51,19 @@ const Home = () => {
         <MaterialCommunityIcons
           name="view-dashboard-outline"
           size={40}
-          color="black"
+          style={tw`text-violet-700`}
         />
-        <View style={tw`h-full mb-8 bg-white rounded-full px-3 py-2 shadow-2xl`}>
-          <Entypo name="camera" size={40} color="black"  style={tw``}/>
+        <View
+          style={tw`h-full px-3 py-2 mb-8 bg-white rounded-full shadow-2xl`}
+        >
+          <Entypo name="camera" size={40} style={tw`text-violet-700`} />
         </View>
-        <Entypo name="keyboard" size={40} color="black" />
+        <Entypo
+          name="keyboard"
+          size={40}
+          style={tw`text-violet-700`}
+          onPress={() => navigation.navigate('Chat')}
+        />
       </View>
     </View>
   );

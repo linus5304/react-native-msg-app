@@ -1,30 +1,31 @@
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import React from "react";
 import tw from "twrnc";
 import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesome5 } from '@expo/vector-icons'; 
 
 
-const Welcome = () => {
+const Welcome = ({navigation}) => {
   return (
-    <View style={tw`bg-violet-600 h-full justify-center items-center`}>
-      <View style={tw`justify-center items-center `}>
-        <View style={tw`bg-white p-40 rounded-full opacity-10 absolute`}></View>
-        <View style={tw`bg-white p-30 rounded-full opacity-20 absolute`}></View>
-        <FontAwesome5 name="robot" size={40} color="black" style={tw`mb-20 z-20 text-violet-700`}/>
+    <View style={tw`items-center justify-center h-full bg-violet-600`}>
+      <View style={tw`items-center justify-center `}>
+        <View style={tw`absolute p-40 bg-white rounded-full opacity-10`}></View>
+        <View style={tw`absolute bg-white rounded-full p-30 opacity-20`}></View>
+        <FontAwesome5 name="robot" size={40} color="black" style={tw`z-20 mb-20 text-violet-700`}/>
         <FontAwesome
           name="commenting-o"
           size={100}
           color="white"
-          style={tw`z-10 absolute`}
+          style={tw`absolute z-10`}
         />
       </View>
       <View style={tw`flex flex-row mt-40`}>
-        <View style={tw`bg-white p-4 rounded-full mx-1 `}></View>
-        <View style={tw`bg-white p-4 rounded-full mx-1`}></View>
-        <View style={tw`bg-white p-4 rounded-full mx-1 `}></View>
-        <View style={tw`bg-white p-4 rounded-full mx-1 `}></View>
+        <View style={tw`p-4 mx-1 bg-white rounded-full `}></View>
+        <View style={tw`p-4 mx-1 bg-white rounded-full`}></View>
+        <View style={tw`p-4 mx-1 bg-white rounded-full `}></View>
+        <View style={tw`p-4 mx-1 bg-white rounded-full `}></View>
       </View>
+      <Button title="Next page" onPress={() => navigation.navigate('Home')}></Button>
     </View>
   );
 };
