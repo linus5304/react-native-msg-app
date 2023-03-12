@@ -11,7 +11,7 @@ const Home = ({ navigation }) => {
     <View
       style={tw`items-center flex-1 h-full pt-4 justify-evenly bg-violet-600`}
     >
-      <View style={tw`flex-1`}>
+      <View style={tw`flex-1 mt-8`}>
         <Text style={tw`text-4xl text-center text-white`}>Hello </Text>
         <Text style={tw`text-4xl text-center text-white`}>I'm Sparco </Text>
       </View>

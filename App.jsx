@@ -19,7 +19,7 @@ export default function App() {
           <Stack.Navigator>
             <Stack.Screen name="Welcome" component={Welcome} options={{headerShown: false}} />
             <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
-            <Stack.Screen name="Chat" component={Chat} options={{headerShown: false}}/>
+            <Stack.Screen name="Chat" component={Chat} options={{headerShown: false}} initialParams={{ name: "John Doe"}}/>
             <Stack.Screen name="Call" component={Call} options={{headerShown: false}}/>
             <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
             <Stack.Screen name="UpdateProfile" component={UpdateProfile} options={{headerShown: false}}/>
