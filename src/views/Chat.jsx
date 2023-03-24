@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import { Entypo } from "@expo/vector-icons";
 import Message from "../components/Message";
 import { FontAwesome } from "@expo/vector-icons";
 import { botData } from "../model";
+import { StatusBar } from "expo-status-bar";
+import { words } from "../../constants";
 
 const demoMessages = [
   {
@@ -69,6 +71,11 @@ function Chat({ name, navigation }) {
   useEffect(() => {}, [text]);
 
   const keyboardVerticalOffset = Platform.OS === "ios" ? 50 : 0;
+
+  const [quickQuestions,setQuickQuestions] = useState([
+    "Where is Sparc located ?","What's the cost at Sparc","At what time does basketball start ?","When is Sparc open ?"
+  ])
+
   return (
     <>
       <KeyboardAvoidingView
@@ -78,7 +85,7 @@ function Chat({ name, navigation }) {
       >
         {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
         <View style={tw`flex-1`}>
-          <View style={tw` bg-violet-700 h-20 rounded-b-[8]`}>
+          <View style={tw` bg-[#051ff4] h-20 mb-2 rounded-b-[8]`}>
             <View style={tw`flex-row items-center justify-center flex-1 p-4 `}>
               <View style={tw`flex-row flex-1`}>
                 <AntDesign
@@ -132,6 +139,19 @@ function Chat({ name, navigation }) {
                 })}
             </>
           </ScrollView>
+
+          <ScrollView horizontal={true} style={tw`my-2`}>
+            {
+              quickQuestions && quickQuestions.map((item,index)=>{
+                return(
+                <View key={index} style={tw`w-[180px] h-[45px] flex justify-center ml-2 mb-5 items-center rounded-full bg-[#060f57]`}>
+                  <Text style={tw`text-white font-bold`}>{item}</Text>
+                </View>
+                )
+              })
+            }
+          </ScrollView>
+
           <View
             style={tw`flex flex-row min-h-15 bg-gray-100 shadow-2xl  rounded-t-[8] items-center py-2 px-4`}
           >
@@ -143,7 +163,7 @@ function Chat({ name, navigation }) {
               placeholder="Type a message"
             />
             <View
-              style={tw`p-2 rounded-full bg-violet-700 `}
+              style={tw`p-2 rounded-full bg-[#051ff4] `}
               onStartShouldSetResponder={() => handleSetData(text, true)}
             >
               <FontAwesome
@@ -156,6 +176,7 @@ function Chat({ name, navigation }) {
           </View>
         </View>
         {/* </TouchableWithoutFeedback> */}
+        <StatusBar backgroundColor="transparent"/>
       </KeyboardAvoidingView>
     </>
   );

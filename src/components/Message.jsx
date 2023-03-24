@@ -5,15 +5,17 @@ import { FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 
 const Message = ({ text, time, isSender }) => {
   return (
-    <View style={tw`flex flex-row ${isSender ? "flex-row-reverse" : ""}`}>
+    <View style={tw`mb-2 flex flex-row ${isSender ? "flex-row-reverse" : ""}`}>
       <View style={tw`flex px-4 w-[80%]`}>
         {!isSender ? (
+          <View style={tw`w-[35px] h-[35px] flex justify-center items-center rounded-full bg-violet-500`}>
           <FontAwesome5
             name="robot"
             size={20}
             color="black"
-            style={tw`z-20 text-violet-700`}
+            style={tw`z-20 text-[#051ff4]`}
           />
+          </View>
         ) : (
           <View style={tw`ml-64 rounded-full bg-violet-700`}>
             <Text style={tw`p-1 text-2xl font-bold text-center text-white`}>
